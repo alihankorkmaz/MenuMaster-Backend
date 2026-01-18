@@ -74,6 +74,8 @@ namespace MenuMaster.Services
 
             user.Name = updatedUserDto.Name ?? user.Name;
             user.City = updatedUserDto.City ?? user.City;
+            user.PhoneNumber = updatedUserDto.PhoneNumber ?? user.PhoneNumber;
+            user.Address = updatedUserDto.Address ?? user.Address;
             user.Username = updatedUserDto.Username ?? user.Username;
             user.Email = updatedUserDto.Email ?? user.Email;
 
