@@ -47,6 +47,8 @@ cd MenuMaster
 Sensitive configuration values are not included in the repository. Use `appsettings.sample.json` as a reference and provide actual values via environment variables or local configuration.
 
 ### 3️⃣ Database setup (Docker)
+The database is created using Entity Framework Core migrations.
+A new database can be initialized by running dotnet ef database update
 
 docker compose up -d
 
