@@ -1,0 +1,50 @@
+﻿# ================================
+# .NET / Visual Studio
+# ================================
+bin/
+obj/
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider / VS Code
+.idea/
+.vscode/
+
+# ================================
+# Build & Publish
+# ================================
+publish/
+artifacts/
+
+# ================================
+# Logs
+# ================================
+*.log
+
+# ================================
+# OS files
+# ================================
+.DS_Store
+Thumbs.db
+
+# ================================
+# App settings & secrets
+# ================================
+appsettings.json
+appsettings.*.json
+
+# BUT keep sample config
+!appsettings.sample.json
+
+# ================================
+# User secrets
+# ================================
+secrets.json
+
+# ================================
+# Docker
+# ================================
+docker-data/
