@@ -33,6 +33,30 @@ namespace MenuMaster.Repositories
         {
             return await _context.Restaurants.FirstOrDefaultAsync(r => r.Email == email);
         }
+        public async Task<List<Restaurant>> GetAllAsync(string? city = null)
+        {
+            var q = _context.Restaurants.AsNoTracking().AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(city))
+            {
+                var c = city.Trim();
+                q = q.Where(r => r.City == c);
+            }
+
+            return await q
+                .OrderBy(r => r.Name)
+                .ToListAsync();
+        }
+        public async Task<List<string>> GetDistinctCitiesAsync()
+        {
+            return await _context.Restaurants
+                .AsNoTracking()
+                .Where(r => r.City != null && r.City != "")
+                .Select(r => r.City!)
+                .Distinct()
+                .OrderBy(c => c)
+                .ToListAsync();
+        }
         public async Task<bool> DeleteRestaurantAsync(int restaurantId)
         {
             var restaurant = await _context.Restaurants.FindAsync(restaurantId);

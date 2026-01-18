@@ -8,6 +8,8 @@ namespace MenuMaster.Repositories
         Task AddRestaurantAsync(Restaurant restaurant);
         Task<Restaurant> GetRestaurantByIdAsync(int restaurantId);
         Task<Restaurant?> GetRestaurantByEmailAsync(string email);
+        Task<List<Restaurant>> GetAllAsync(string? city = null);
+        Task<List<string>> GetDistinctCitiesAsync();
         Task<bool> DeleteRestaurantAsync(int RestaurantId);
         Task<bool> UpdateRestaurantAsync(Restaurant restaurant);
         Task<bool> EmailExistsAsync(string email);

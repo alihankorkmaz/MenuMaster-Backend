@@ -36,6 +36,7 @@ namespace MenuMaster.Services
             {
                 Name = dto.Name,
                 Username = dto.Username,
+                City = dto.City,
                 Email = dto.Email,
                 PhoneNumber = dto.PhoneNumber,
                 Address = dto.Address,
@@ -72,6 +73,7 @@ namespace MenuMaster.Services
             if (user == null) return null;
 
             user.Name = updatedUserDto.Name ?? user.Name;
+            user.City = updatedUserDto.City ?? user.City;
             user.Username = updatedUserDto.Username ?? user.Username;
             user.Email = updatedUserDto.Email ?? user.Email;
 
@@ -95,6 +97,7 @@ namespace MenuMaster.Services
                 Username = user.Username,
                 Email = user.Email,
                 PhoneNumber = user.PhoneNumber,
+                city = user.City,
                 Address = user.Address,
                 CreatedDate = user.CreatedAt
             };          

@@ -36,6 +36,7 @@ namespace MenuMaster.Services
                     Name = dto.Name,
                     Email = dto.Email,
                     PhoneNumber = dto.PhoneNumber,
+                    City = dto.City,
                     Address = dto.Address,
                     Description = dto.Description,
                     ImageUrl = dto.ImageUrl,
@@ -69,6 +70,7 @@ namespace MenuMaster.Services
             }
             restaurant.Name = dto.Name ?? restaurant.Name;
             restaurant.PhoneNumber = dto.PhoneNumber ?? restaurant.PhoneNumber;
+            restaurant.City = dto.City ?? restaurant.City;
             restaurant.Address = dto.Address ?? restaurant.Address;
             restaurant.Description = dto.Description ?? restaurant.Description;
             restaurant.ImageUrl = dto.ImageUrl ?? restaurant.ImageUrl;
@@ -91,12 +93,22 @@ namespace MenuMaster.Services
                 Name = restaurant.Name,
                 Email = restaurant.Email,
                 PhoneNumber = restaurant.PhoneNumber,
+                City = restaurant.City,
                 Address = restaurant.Address,
                 Description = restaurant.Description,
                 ImageUrl = restaurant.ImageUrl,
                 CreatedAt = restaurant.CreatedAt
             };
             return RestaurantInfoDto;
+        }
+        public async Task<List<Restaurant>> GetRestaurantsAsync(string? city = null)
+        {
+            var restaurants = await _restaurantRepository.GetAllAsync(city);
+            return restaurants;
+        }
+        public async Task<List<string>> GetCitiesAsync()
+        {
+            return await _restaurantRepository.GetDistinctCitiesAsync();
         }
         public async Task<bool?> DeleteRestaurantAsync(int restaurantId)
         {

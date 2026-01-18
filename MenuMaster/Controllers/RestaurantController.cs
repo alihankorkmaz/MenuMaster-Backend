@@ -81,7 +81,27 @@ namespace MenuMaster.Controllers
             }
             return Ok(restaurants);
         }
-        
+
+        // GET: /api/restaurants?city=Poznan
+        [HttpGet]
+        public async Task<IActionResult> GetAll([FromQuery] string? city)
+        {
+            var data = await _restaurantService.GetRestaurantsAsync(city);
+            return Ok(data);
+        }
+        // GET: /api/restaurants/cities
+        [HttpGet("cities")]
+        public async Task<IActionResult> GetCities()
+        {
+            var cities = await _restaurantService.GetCitiesAsync();
+
+            // Seçenek A (en basit): ["Poznan","Warsaw"]
+            return Ok(cities);
+
+            // Seçenek B (senin front {name} bekliyorsa):
+            // return Ok(cities.Select(c => new { name = c }));
+        }
+
         //get api/restaurant/{restaurantId}
         [HttpGet("{restaurantId}")]
         public async Task<IActionResult> GetRestaurantById(int restaurantId)

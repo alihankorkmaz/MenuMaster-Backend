@@ -11,6 +11,8 @@ namespace MenuMaster.Services
         Task<Restaurant?> UpdateRestaurantAsync(int restaurantId, UpdateRestaurantDto updatedRestaurantDto);
         Task<bool?> DeleteRestaurantAsync(int restaurantId);
         Task<List<Restaurant>> GetAllRestaurantsAsync();
+        Task<List<Restaurant>> GetRestaurantsAsync(string? city = null);
+        Task<List<string>> GetCitiesAsync();
         Task<RestaurantInfoDto?> GetRestaurantByIdAsync(int restaurantId);
         Task<Restaurant?> FindRestaurantByEmailAsync(string email);
     }

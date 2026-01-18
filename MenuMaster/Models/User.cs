@@ -9,6 +9,7 @@
         public string PasswordHash { get; set; }
         public string PhoneNumber { get; set; }
         public string? Address { get; set; }
+        public string? City { get; set; }
         public DateTime CreatedAt { get; set; }
         public string? PasswordResetCodeHash { get; set; }
         public DateTime? PasswordResetCodeExpiresAt { get; set; }
