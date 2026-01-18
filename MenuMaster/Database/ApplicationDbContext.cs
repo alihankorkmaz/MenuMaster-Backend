@@ -10,7 +10,6 @@ namespace MenuMaster.Database
         }
         public DbSet<Restaurant> Restaurants { get; set; }
         public DbSet<Menu> Menus { get; set; }
-        public DbSet<Dish> Dishes { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Reservation> Reservations { get; set; }
         public DbSet<Review> Reviews { get; set; }
